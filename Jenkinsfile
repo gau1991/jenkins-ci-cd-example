@@ -8,7 +8,7 @@ pipeline {
          }
       }
 
-      stage('Pylint') {
+      stage('Linter') {
          steps {
              sh 'pylint blog mysite'
          }
@@ -16,7 +16,7 @@ pipeline {
 
       stage('Test') {
          steps {
-             sh 'pylint blog mysite'
+             sh 'python manage.py test'
          }
       }
 
@@ -25,6 +25,18 @@ pipeline {
              sh 'docker build .'
          }
       }
+
+    //   stage('Push') {
+    //      steps {
+    //          sh 'docker build .'
+    //      }
+    //   }
+
+    //   stage('Deploy') {
+    //      steps {
+    //          sh 'docker build .'
+    //      }
+    //   }
 
    }
 }
