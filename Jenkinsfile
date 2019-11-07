@@ -22,15 +22,10 @@ pipeline {
 
       stage('Build') {
          steps {
-             sh 'docker build .'
+             sh "docker build -t ${env.ACCOUNT_ID}.dkr.ecr.region.amazonaws.com/sample-app:${env.BUILD_NUMBER} ."
+             sh "docker push ${env.ACCOUNT_ID}.dkr.ecr.region.amazonaws.com/sample-app:${env.BUILD_NUMBER}"
          }
       }
-
-    //   stage('Push') {
-    //      steps {
-    //          sh 'docker build .'
-    //      }
-    //   }
 
     //   stage('Deploy') {
     //      steps {
