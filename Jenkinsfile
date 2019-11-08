@@ -22,14 +22,14 @@ pipeline {
 
       stage('Build') {
          steps {
-             sh "docker build -t ${env.ACCOUNT_ID}.dkr.ecr.${env.REGION}.amazonaws.com/sample-app:${env.BUILD_NUMBER} ."
-             sh "docker push ${env.ACCOUNT_ID}.dkr.ecr.${env.REGION}.amazonaws.com/sample-app:${env.BUILD_NUMBER}"
+             sh "docker build -t gau1991/sample-app:${env.BUILD_NUMBER}"
+             sh "docker push gau1991/sample-app:${env.BUILD_NUMBER}"
          }
       }
 
     //   stage('Deploy') {
     //      steps {
-    //          sh 'docker build .'
+    //          sh 'kubectl set image '
     //      }
     //   }
 
