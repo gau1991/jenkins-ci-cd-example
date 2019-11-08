@@ -27,11 +27,10 @@ pipeline {
          }
       }
 
-    //   stage('Deploy') {
-    //      steps {
-    //          sh 'kubectl set image '
-    //      }
-    //   }
-
+      stage('Deploy') {
+         steps {
+             sh 'kubectl set image deployments/myserver myserver=gau1991/sample-app:${env.BUILD_NUMBER}'
+         }
+      }
    }
 }
