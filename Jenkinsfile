@@ -22,7 +22,7 @@ pipeline {
 
       stage('Build') {
          steps {
-             sh "docker build -t gau1991/sample-app:${env.BUILD_NUMBER}"
+             sh "docker build -t gau1991/sample-app:${env.BUILD_NUMBER} ."
              sh "docker push gau1991/sample-app:${env.BUILD_NUMBER}"
          }
       }
